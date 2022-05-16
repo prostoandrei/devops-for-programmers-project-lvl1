@@ -1,22 +1,11 @@
-# Версия схемы, которую мы используем.
-# Зависит от установленной версии docker
-# https://docs.docker.com/compose/compose-file/
 version: "3"
-# Определяем список сервисов — services
-# Эти сервисы будут частью нашего приложения
 services:
-  app: # Имя сервиса
+  app:
     image: prostoandrei/devops-for-programmers-project-lvl1
     build:
-      # Контекст для сборки образа,
-      # в данном случае, текущая директория
       context: .
-      # Имя докерфайла из которого будет собран образ
-      dockerfile: Dockerfile
-    # Перечисляем тома (volumes)
-    # Они будут подключены к файловой системе сервиса
-    # Например, всё что находится в . мы увидим в директории /app
-    volumes:
-      # Текущая директория пробрасывается в директорию /app внутри контейнера
-      - "./app:/app"
+      dockerfile: Dockerfile.production
+    ports:
+      - "8080:8080"
+    command: npm test
 
