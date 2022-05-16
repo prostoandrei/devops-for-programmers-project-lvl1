@@ -37,9 +37,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14.x
-      # -
-      #   name: Tests and linters
-      #   run: make ci
+      -
+        name: Tests
+        run: make test
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
