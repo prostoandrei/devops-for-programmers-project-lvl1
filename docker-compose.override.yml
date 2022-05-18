@@ -3,7 +3,7 @@ services:
   app:
     ports:
       - "8080:8080"
-    command: npm run dev
+    command: bash -c 'sleep 3 && npm start'
     build:
       context: .
       dockerfile: Dockerfile
@@ -18,6 +18,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "./services/caddy/Caddyfile:/etc/caddy/Caddyfile"
+      - ./app/:/srv
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
     
     

@@ -38,6 +38,9 @@ jobs:
         with:
           node-version: 14.x
       -
+        name: Prepare enviroment
+        run: make prepare
+      -
         name: Tests
         run: make test
       -
